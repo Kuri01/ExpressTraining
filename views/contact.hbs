@@ -1,3 +1,38 @@
-<h1>
-  Contact
-</h1>
+<h2>Contact me</h2>
+<form action='/contact/send-message' method='POST'>
+  <label>
+    Your name:
+    <input type='text' name='author' />
+  </label>
+  <label>
+    Your email:
+    <input type='email' name='sender' />
+  </label>
+  <label>
+    Title:
+    <input type='text' name='title' />
+  </label>
+  <label>
+    File:
+    <input
+      type='file'
+      name='file'
+      accept='image/png, image/gif, image/jpeg, image/jpg'
+    />
+  </label>
+  <label>
+    Message:
+    <textarea name='message'></textarea>
+  </label>
+  <button type='submit'>Send message</button>
+  <div>
+    {{#if isSent}}
+      Message sent! File
+      {{file}}
+      has been saved!
+    {{/if}}
+    {{#if isError}}
+      Something is valid!
+    {{/if}}
+  </div>
+</form>
